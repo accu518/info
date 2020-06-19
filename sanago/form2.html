@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>데이터 전송 파일</title>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <link href="https://samyang.com/common/css/common.css" rel="stylesheet">
+  <link href="css/form.css">
+  <style>
+    body.opa:after{ content: ""; display: block; position: fixed; top:0; left:0; bottom:0; right:0;
+    background:rgba(0,0,0,.5)}
+    .formWrap{ background:white;
+               position: fixed;
+               top:50%; left:50%; transform:translate(-50%, -50%);
+               padding:25px; opacity: 0; visibility: hidden; z-index:-1;
+               transition: 0.5s;
+             }
+    body.opa .formWrap{  opacity: 1; visibility: visible; z-index: 10}
+
+
+
+    #etcEmail{ display: none;}
+    #etcEmail.disB{ display: block;}
+
+
+
+    #agree{display: none;}
+    #agree + label i.xi-check-square-o,#agree:checked + label i.xi-checkbox-blank{display: none;}
+    #agree:checked + label i.xi-check-square-o,#agree + label i.xi-checkbox-blank{display: inline-block;}
+
+  </style>
+  <script
+			  src="https://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			  crossorigin="anonymous"></script>
+  <script>
+  $(function(){
+
+     $("#emailSelect").change(function(){
+        if( $(this).val() == '기타'){
+           $('#etcEmail').addClass('disB').focus();
+        }else{
+           $('#etcEmail').removeClass('disB');
+        }
+     });
+
+     $('body').on('click','#popClose', function(){
+        $('body').removeClass('opa');
+     });
+
+     var ifSrc = "";
+     $('.data-ifdata').each(function(){
+       //.data-ifdata가 여러개임을 알 수 있다. 그 애들마다 라는 뜻
+       $(this).click(function(){
+         //여러개 애들중 하느를 클릭하면
+           ifSrc = $(this).attr('data-ifdata');
+           //클릭당한 그 애의 속성 data-ifdata의 값을 ifSrc변수에 담아라
+         $('#terms').attr('src',ifSrc);
+         //그 변수값을 iframe의 src값에 대입해라
+         //결과
+       });
+  });
+
+  function chk(){  ///모든 함수선언은 반드시 ready이벤트 밖에다가 ...
+
+         return true;
+  }
+
+
+  });
+  </script>
+</head>
+<body class="opa">
+
+  <div class="formWrap">
+    <a href='#none' id='popClose'>X</a>
+    <form action="http://www.naver.com" onsubmit="return chk()" name="fmField" >
+      <dl id="qna">
+        <dt>아이디</dt><dd><input type="text" name="wr_name" ></dd>
+        <dt>휴대폰</dt>
+        <dd>
+          <select name="hp[0]" id="hp0">
+              <option value="">선택</option>
+              <option value="010">010</option>
+              <option value="016">016</option>
+              <option value="017">017</option>
+              <option value="019">019</option>
+          </select>
+          <span>-</span>
+          <input name="hp[1]" id="hp1"  size=4  maxlength="4" >
+          <span>-</span>
+          <input name="hp[2]" id="hp2"  size=4  maxlength="4">
+        </dd>
+        <dt>이메일</dt><dd>
+          <input type="text" name="email[0]" >
+          <span>@</span>
+          <select name="email[1]" id="emailSelect" >
+              <option value="">선택</option>
+              <option value="naver.com">네이버</option>
+              <option value="daum.net">다음</option>
+              <option value="nate.com">네이트</option>
+              <option value="google.com">구글</option>
+              <option value="기타" >기타</option>
+          </select>
+          <input type="text" name="email[1]" id="etcEmail" >
+        </dd>
+        <dt>성별</dt>
+        <dd>
+          <input type="radio" name="fm" value='f' id="f">
+          <label for="f">여자</label>
+          <input type="radio" name="fm" value='m' id="m">
+          <label for="m">남자</label>
+        </dd>
+        <dt>기타</dt><dd>
+          <textarea name="name" rows="8" cols="80"></textarea>
+        </dd>
+      </dl>
+        <iframe src="https://policy.naver.com/rules/service.html" id="terms"></iframe>
+      <p>
+        <input type="checkbox" id="agree">
+        <label for="agree"><i class="xi-checkbox-blank"></i><i class="xi-check-square-o"></i>개인정보정책</label>
+        <a href="#none" class="data-ifdata" data-ifdata="https://naver.com">개인정보정책</a>
+        <a href="#none" class="data-ifdata" data-ifdata='https://policy.naver.com/rules/service.html'>이용약관</a>
+      </p>
+      <input type="submit" value="상담신청">
+    </form>
+  </div>
+</body>
+</html>
