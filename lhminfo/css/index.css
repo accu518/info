@@ -60,7 +60,8 @@ html, body {
        font-size: 3em;color: black
    }
 .slideButton{position: absolute;right: 60px;top: 370px}
-#Portfolio .swiper-slide{margin-right:0 !important}
+#Portfolio .swiper-slide{margin-right:0 !important;}
+#Portfolio .swiper-slide img{max-width: 80%}
 #Portfolio h1{font-size: 8em;position: absolute;top:20%;left: 25%}
 
 #Portfolio .swiper-slide.slide1,#Portfolio .swiper-slide.slide4{margin-left: 90px}
