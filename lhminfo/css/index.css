@@ -60,13 +60,21 @@ html, body {
        font-size: 3em;color: black
    }
 .slideButton{position: absolute;right: 60px;top: 370px}
-#Portfolio .swiper-slide{margin-right:0 !important;}
+
 #Portfolio .swiper-slide img{max-width: 80%}
-#Portfolio h1{font-size: 8em;position: absolute;top:20%;left: 25%}
+#Portfolio .Portfolio{position: absolute;top:20%;left: 25%;}
+#Portfolio h1{font-size: 8em;display: block;position: relative;}
 
-#Portfolio .swiper-slide.slide1,#Portfolio .swiper-slide.slide4{margin-left: 90px}
+.ani{height: 8em;background: rgb(0,0,0);opacity: 1;position: absolute;top: 0;animation: inout .7s;}
+@keyframes inout {
+  0%{width: 0;left: 0}
+  50%{width: 100%;left: 0}
+  53%{width: 100%;left: auto;right: 0}
+  100%{width: 0%;right: 0}
+}
 
-   footer{position: absolute; bottom: 0;left: 0;right: 0}
+
+   footer{position: absolute; bottom: 0;left: 0;right: 0;border-top: 1px solid #222}
    footer > div {position: relative;text-align: center;}
    footer .contact {float: left;text-align: left}
    footer .box{text-align: left;display: inline-block;}
