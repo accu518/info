@@ -54,7 +54,6 @@ html, body {
    p.pull-left {
        padding: 0px 10px;
        color: #ccc;
-       font-size: 11px;
        margin-top: 2px;
        float: right;
        font-size: 3em;color: black
@@ -72,6 +71,9 @@ html, body {
   53%{width: 100%;left: auto;right: 0}
   100%{width: 0%;right: 0}
 }
+
+.swiper-pagination{font-family: 'Cafe24Ohsquare';font-size: 3em;text-align: left;left: -120px;line-height: 29px;vertical-align: bottom;}
+.swiper-pagination .swiper-pagination-total{font-size: 1.5rem;vertical-align: bottom;bottom: -6px;position: relative;}
 
 
    footer{position: absolute; bottom: 0;left: 0;right: 0;border-top: 1px solid #222}
